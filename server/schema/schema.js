@@ -3,33 +3,18 @@
 // root queries describe how a user can access and grab data
 const graphql = require('graphql');
 const _ = require('lodash'); // lodash is a utility lib to deal with arrays, objects, etc in JS
+const Book = require('../models/book');
+const Author = require('../models/author');
 
 // defining object types
 const {
-  GraphQLObjectType,
-  GraphQLString,
-  GraphQLID,
-  GraphQLSchema,
-  GraphQLInt,
-  GraphQLList
+  GraphQLObjectType, // creates Object Types
+  GraphQLString, // type String
+  GraphQLID, // type ID
+  GraphQLSchema, // creates a new schema
+  GraphQLInt, // type Integer
+  GraphQLList // list of elements from one specific type
 } = graphql;
-
-// dummy data for books
-const books = [
-  { name: 'Name of the Wind', genre: 'Fantasy', id: '1', authorId: '1' },
-  { name: 'The Final Empire', genre: 'Fantasy', id: '2', authorId: '2' },
-  { name: 'The Long Earth', genre: 'Sci-Fi', id: '3', authorId: '3' },
-  { name: 'The Hero of Ages', genre: 'Fantasy', id: '4', authorId: '2' },
-  { name: 'The Colour of Magic', genre: 'Fantasy', id: '5', authorId: '3' },
-  { name: 'The Light Fantastic', genre: 'Fantasy', id: '6', authorId: '3' },
-];
-
-// dummy data for authors
-const authors = [
-  { name: 'Patrick Rothfuss', age: 44, id: '1' },
-  { name: 'Brandon Sanderson', age: 42, id: '2' },
-  { name: 'Terry Pratchett', age: 66, id: '3' },
-];
 
 const BookType = new GraphQLObjectType({
   name: 'Book',
@@ -41,7 +26,7 @@ const BookType = new GraphQLObjectType({
       type: AuthorType,
       resolve(parent, args) {
         // relate the book to an author
-        return _.find(authors, { id: parent.authorId });
+        // return _.find(authors, { id: parent.authorId });
       }
     }
   })
@@ -57,7 +42,7 @@ const AuthorType = new GraphQLObjectType({
       type: new GraphQLList(BookType), // not ony a BookType, but a list of BookTypes (for we have many books)
       resolve(parent, args) {
         // relate the author to a list of books
-        return _.filter(books, { authorId: parent.id });
+        // return _.filter(books, { authorId: parent.id });
       }
     }
   })
@@ -73,7 +58,7 @@ const RootQuery = new GraphQLObjectType({
       args: { id: { type: GraphQLID } }, // should be passed when a book is queried
       resolve(parent, args) {
         // code to get data from db / other source
-        return _.find(books, { id: args.id }); // find a book with id 2 inside books array
+        // return _.find(books, { id: args.id }); // find a book with id 2 inside books array
       }
     },
     // get one author
@@ -81,21 +66,21 @@ const RootQuery = new GraphQLObjectType({
       type: AuthorType,
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
-        return _.find(authors, { id: args.id }); // find an author with id inside authors array
+        // return _.find(authors, { id: args.id }); // find an author with id inside authors array
       }
     },
     // get all books
     books: {
       type: new GraphQLList(BookType),
       resolve(parent, args) {
-        return books;
+        // return books;
       }
     },
     // get all authors
     authors: {
       type: new GraphQLList(AuthorType),
       resolve(parent, args) {
-        return authors;
+        // return authors;
       }
     }
   }

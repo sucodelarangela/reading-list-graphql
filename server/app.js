@@ -1,8 +1,16 @@
 const express = require('express');
 const { graphqlHTTP } = require('express-graphql'); // allows express to understand graphql through a middleware
 const schema = require('./schema/schema');
+const mongoose = require('mongoose');
+require('dotenv').config();
 
 const app = express();
+
+// connect with MongoDb database
+mongoose.connect(`mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@cluster0.yake6qy.mongodb.net/?retryWrites=true&w=majority`);
+mongoose.connection.once('open', () => {
+  console.log('Connected to database');
+});
 
 // middleware for graphql-express to handle the graphql requests
 app.use('/graphql', graphqlHTTP({
