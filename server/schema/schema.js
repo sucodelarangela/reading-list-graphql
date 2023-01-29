@@ -13,7 +13,8 @@ const {
   GraphQLID, // type ID
   GraphQLSchema, // creates a new schema
   GraphQLInt, // type Integer
-  GraphQLList // list of elements from one specific type
+  GraphQLList, // list of elements from one specific type
+  GraphQLNonNull // for required fields
 } = graphql;
 
 const BookType = new GraphQLObjectType({
@@ -99,8 +100,8 @@ const Mutation = new GraphQLObjectType({
     addAuthor: {
       type: AuthorType,
       args: {
-        name: { type: GraphQLString },
-        age: { type: GraphQLInt }
+        name: { type: new GraphQLNonNull(GraphQLString) },
+        age: { type: new GraphQLNonNull(GraphQLInt) }
       },
       resolve(parent, args) {
         // this Author is mongodb model
@@ -114,9 +115,9 @@ const Mutation = new GraphQLObjectType({
     addBook: {
       type: BookType,
       args: {
-        name: { type: GraphQLString },
-        genre: { type: GraphQLString },
-        authorId: { type: GraphQLID }
+        name: { type: new GraphQLNonNull(GraphQLString) },
+        genre: { type: new GraphQLNonNull(GraphQLString) },
+        authorId: { type: new GraphQLNonNull(GraphQLID) }
       },
       resolve(parent, args) {
         // this Book is mongodb model
