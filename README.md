@@ -13,6 +13,7 @@ Aplicação com React para prática pessoal de GraphQL.
 
 <div>
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/>
+  <img src="https://img.shields.io/badge/vite-242424?style=for-the-badge&logo=vite&logoColor=646CFF"/>
   <img src="https://img.shields.io/badge/apollo-ffffff?style=for-the-badge&logo=apollographql&logoColor=311C87"/>
   <img src="https://img.shields.io/badge/mongodb-ffffff?style=for-the-badge&logo=mongodb&logoColor=47A248"/>
   <img src="https://img.shields.io/badge/graphql-f5f6f8?style=for-the-badge&logo=graphql&logoColor=E10098">
