@@ -1,14 +1,5 @@
-import { gql, useQuery } from "@apollo/client"; // parses GraphQl
-
-// querying the books
-const getBooksQuery = gql`
-  {
-    books {
-      name
-      id
-    }
-  }
-`;
+import { useQuery } from "@apollo/client"; // parses GraphQl
+import { getBooksQuery } from "../queries/queries";
 
 export const BookList = () => {
   // binding the query to the component
