@@ -1,6 +1,6 @@
 import { useQuery, useMutation } from "@apollo/client"; // parses GraphQl
 import { useState } from "react";
-import { getAuthorsQuery, addBookMutation } from "../queries/queries";
+import { getBooksQuery, getAuthorsQuery, addBookMutation } from "../queries/queries";
 
 export const AddBook = () => {
   const [book, setBook] = useState({
@@ -21,7 +21,10 @@ export const AddBook = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    addBook({ variables: { name: book.name, genre: book.genre, authorId: book.authorId } });
+    addBook({
+      variables: { name: book.name, genre: book.genre, authorId: book.authorId },
+      refetchQueries: [{ query: getBooksQuery }]
+    });
   }
 
   return (
