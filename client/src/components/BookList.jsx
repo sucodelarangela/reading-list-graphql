@@ -1,7 +1,11 @@
 import { useQuery } from "@apollo/client"; // parses GraphQl
+import { useState } from "react";
 import { getBooksQuery } from "../queries/queries";
+import { BookDetails } from "./BookDetails";
 
 export const BookList = () => {
+  const [bookId, setBookId] = useState(null);
+
   // binding the query to the component
   const { loading, error, data } = useQuery(getBooksQuery);
 
@@ -13,9 +17,10 @@ export const BookList = () => {
     <div>
       <ul id='book-list'>
         {!loading && data ? (
-          data.books.map((book) => <li key={book.id}>{book.name}</li>)
+          data.books.map((book) => <li key={book.id} onClick={(e) => setBookId(book.id)}>{book.name}</li>)
         ) : ''}
       </ul>
+      <BookDetails bookId={bookId} />
     </div>
   );
 };
