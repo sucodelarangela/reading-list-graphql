@@ -4,12 +4,9 @@
 
 </div>
 
-<!--
 _[Read it in English](#English)_
 
-Aplicação com React para prática pessoal de GraphQL.
-
--->
+Aplicação com React para prática pessoal de GraphQL e Apollo Client.
 
 <div>
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/>
@@ -22,8 +19,6 @@ Aplicação com React para prática pessoal de GraphQL.
   <img src="https://img.shields.io/badge/lodash-ffffff?style=for-the-badge&logo=lodash&logoColor=3492FF">
 </div>
 
-<!--
-
 ## ⚙️ Como usar
 
 1. Crie um banco de dados no [**MongoDb Atlas**](https://www.mongodb.com/);
@@ -31,32 +26,38 @@ Aplicação com React para prática pessoal de GraphQL.
 2. Faça o download deste repositório através do botão verde **Code** no topo da página e, em seguida, clicando em **Download ZIP**. Ou, se preferir, através do terminal (Git Bash, Powershell, etc.), use o comando:
 
 ```bash
-git clone https://github.com/sucodelarangela/uploadimg.git
+git clone https://github.com/sucodelarangela/reading-list-graphql.git
 ```
 
 3. Acesse a pasta do projeto com seu terminal;
 
 4. Rode o comando `npm install` ou `yarn install` para instalar as dependências (você precisa ter o [**Node.js**](https://nodejs.org/en/download/) instalado);
 
-5. Renomeie o arquivo `.env.example` para apenas `.env`. Neste arquivo, substitua os valores das variáveis pela porta de sua preferência para o `localhost`, além do nome de usuário e senha do seu banco de dados do MongoDb Atlas criado no passo **1**.
+5. Crie um arquivo `.env` na pasta `server`. Neste arquivo, crie duas variáveis `DBUSER` e `DBPASS` e atribua a elas seu nome de usuário e a senha do seu banco de dados do MongoDb Atlas criado no passo **1**, respectivamente.
 
 > A aplicação só funcionará com esses dados corretamente inseridos no arquivo `.env`.
-6. Após a correta configuração acima, rode a aplicação com o comando `npm start` ou `yarn start`. Você deve receber a seguinte mensagem de confirmação:
 
-```bash
-[nodemon] starting `node ./app.js`
-Server running on port <porta>
-Database successfully connected!
+6. Após a correta configuração acima, acesse a pasta `server` e rode o back-end com o comando `npm start` ou `yarn start`. Você deve receber a seguinte mensagem de confirmação:
+
+```
+Now listening for requests on port 4000
+Connected to database
 ```
 
-7. Para simular as rotas no lado do cliente, você pode usar a extensão [**Thunder Client**](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client) para o VS Code.
+7. Depois, abra outra instância do seu terminal e acesse a pasta `client`. Rode o comando `npm run dev` ou `yarn dev` para ter acesso ao front-end da aplicação. Você deve receber a seguinte mensagem de confirmação:
 
-> GET: `http://localhost:${port}/pictures`
->
-> POST: `http://localhost:${port}/pictures`
->
-> DELETE: `http://localhost:${port}/pictures/:id`
-<a href='#top'>🔼 Voltar ao topo</a>
+```
+yarn run v1.22.19
+$ vite
+
+  VITE v4.0.4  ready in 736 ms
+
+  ➜  Local:   http://127.0.0.1:5173/
+  ➜  Network: use --host to expose
+  ➜  press h to show help
+```
+
+8. Acesse o endereço `Local` acima no seu navegador para usar a lista de leitura.
 
 ---
 
@@ -68,7 +69,7 @@ _English version_
 
 ## 🔎 Overview
 
-**Uploadimg** is a small project for testing image uploads using **MongoDb** and **Node.js** to save data in a database and locally using **Multer**.
+React app for personal practices of GraphQL and Apollo Client.
 
 ## ⚙️ How to use it
 
@@ -77,35 +78,28 @@ _English version_
 2. Download this repository by clicking the green **Code** button on top of the page and then clicking **Download ZIP** option. Or use the following command on your terminal (Git Bash, Powershell, etc.):
 
 ```bash
-git clone https://github.com/sucodelarangela/uploadimg.git
+git clone https://github.com/sucodelarangela/reading-list-graphql.git
 ```
 
 3. Access the project root folder on your terminal;
 
 4. Run `npm install` or `yarn install` to install all project dependencies (you must have [Node.js](https://nodejs.org/en/download/) installed);
 
-5. Rename the `.env.example` file to only `.env`. In this file, replace the values for the variables with your favorite localhost port, the user name and password for the MongoDb Atlas database created on step **1**.
+5. Create a `.env` file in the `server` folder. In this file, create two variables `DBUSER` and `DBPASS` and set their values with the user name and password for the MongoDb Atlas database created on step **1**, respectively.
 
 > The app will only work properly if these data are correctly set in `.env` file.
-6. To start the application, run `npm start` or `yarn start` on yout terminal. You should receive the following message:
 
-```bash
-[nodemon] starting `node ./app.js`
-Server running on port <porta>
-Database successfully connected!
+6. After the correct setup above, access the `server` folder and run `npm start` or `yarn start` on yout terminal to start the back-end. You should receive the following message:
+
+```
+Now listening for requests on port 4000
+Connected to database
 ```
 
-7. To simulate the routes on client side, you can use the VS Code extension [**Thunder Client**](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client).
+7. Then, open a new instance of your terminal and access the `client`folder. Run `npm run dev` or `yarn dev` to have access to the front-end. You should receive the following message:
 
-> GET: `http://localhost:${port}/pictures`
->
-> POST: `http://localhost:${port}/pictures`
->
-> DELETE: `http://localhost:${port}/pictures/:id`
-<a href='#top'>🔼 Back to top</a>
+8. Open the `Local` url above on your browser to use the reading list.
 
 ---
-
- -->
 
 Developed with 🧡 by [@sucodelarangela](https://angelacaldas.vercel.app)
